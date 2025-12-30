@@ -1,6 +1,8 @@
-package dev.raphhax.CadastroDeNinja;
+package dev.raphhax.CadastroDeNinja.Ninjas;
 
+import dev.raphhax.CadastroDeNinja.Missoes.Missoes;
 import jakarta.persistence.*;
+import java.util.List;
 
 // jakarta = JPA = Java Persistence API
 // Essa classe Ninja vira uma entidade do meu banco de dados através do entity
@@ -15,6 +17,7 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+    private List<Missoes> missoes;
 
     public NinjaModel() {
     }
