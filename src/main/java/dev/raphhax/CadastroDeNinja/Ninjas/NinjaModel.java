@@ -2,12 +2,19 @@ package dev.raphhax.CadastroDeNinja.Ninjas;
 
 import dev.raphhax.CadastroDeNinja.Missoes.MissoesModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
 // jakarta = JPA = Java Persistence API
 // Essa classe Ninja vira uma entidade do meu banco de dados através do entity
 @Entity
 @Table(name = "tb_cadastro") // tb = table = boa pratica para nomear tabelas
+@Data // Annotation de Criacao automatica de getters e setters
+@NoArgsConstructor // Criacao automatica de construtor vazio
+@AllArgsConstructor // Criacao automatica de construtores completos
 public class NinjaModel {
 
     @Id // para informar que a variavel logo abaixo (id) será o "Id" do Banco de Dados.
@@ -26,41 +33,5 @@ public class NinjaModel {
     // uma tabela com oq vem de outra, dai missoes_id vira uma nova coluna que terá a chave estrangeira, que pegará
     // informacoes de pelo menos duas tabelas
     private MissoesModel missoes;
-
-
-    public NinjaModel() {
-    }
-
-    public NinjaModel(String nome, String email, int idade) {
-        this.nome = nome;
-        this.email = email;
-        this.idade = idade;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-
 
 }
