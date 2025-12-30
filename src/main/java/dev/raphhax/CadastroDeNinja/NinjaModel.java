@@ -1,10 +1,20 @@
 package dev.raphhax.CadastroDeNinja;
 
+import jakarta.persistence.*;
+
+// jakarta = JPA = Java Persistence API
+// Essa classe Ninja vira uma entidade do meu banco de dados através do entity
+@Entity
+@Table(name = "tb_cadastro") // tb = table = boa pratica para nomear tabelas
 public class NinjaModel {
-    Long id;
-    String nome;
-    String email;
-    int idade;
+
+    @Id // para informar que a variavel logo abaixo (id) será o "Id" do Banco de Dados.
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Para falar como(qual a estratégia) o ID será gerado automaticamente
+    // As variaveis abaixo sao colunas da nossa tabela tb_cadastro
+    private Long id; // Gerado como numeros sequenciais por conta do @GeneratedValue
+    private String nome;
+    private String email;
+    private int idade;
 
     public NinjaModel() {
     }
