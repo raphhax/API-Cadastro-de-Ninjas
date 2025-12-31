@@ -20,12 +20,16 @@ public class NinjaModel {
     @Id // para informar que a variavel logo abaixo (id) será o "Id" do Banco de Dados.
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Para falar como(qual a estratégia) o ID será gerado automaticamente
     // As variaveis abaixo sao colunas da nossa tabela tb_cadastro
-    private Long id; // Gerado como numeros sequenciais por conta do @GeneratedValue
+    @Column(name = "id")
+    private long id; // Gerado como numeros sequenciais por conta do @GeneratedValue
 
+    @Column(name = "nome")
     private String nome;
 
+    @Column(name = "email")
     private String email;
 
+    @Column(name = "idade")
     private int idade;
 
     @ManyToOne // Um ninja tem uma UNICA missao dentre as varias missoes disponiveis
