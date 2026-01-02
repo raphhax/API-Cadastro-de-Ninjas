@@ -1,5 +1,6 @@
 package dev.raphhax.CadastroDeNinja.Missoes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.raphhax.CadastroDeNinja.Ninjas.NinjaModel;
 import jakarta.persistence.*;
 
@@ -19,6 +20,7 @@ public class MissoesModel {
     private DificuldadeMissoes dificuldadeMissoes;
 
     @OneToMany(mappedBy = "missoes") // Uma missao pode ter varios ninjas
+    @JsonIgnore // ignorar possivel problema de lista infinita na serializacao
     private List<NinjaModel> ninjas;
 
     public MissoesModel() {
