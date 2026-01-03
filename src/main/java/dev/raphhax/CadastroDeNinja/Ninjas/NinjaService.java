@@ -3,6 +3,7 @@ package dev.raphhax.CadastroDeNinja.Ninjas;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service // como isso eh uma classe de Service, usamos essa anotation
 public class NinjaService {
@@ -20,5 +21,11 @@ public class NinjaService {
     // Lista todos os ninjas
     public List<NinjaModel> listarNinjas(){
         return ninjaRepository.findAll();
+    }
+
+    // Lista ninja por ID
+    public NinjaModel mostrarTodosOsNinjasPorID(Long id) {
+        Optional<NinjaModel> ninjaDoId = ninjaRepository.findById(id);
+        return ninjaDoId.orElse(null);
     }
 }
