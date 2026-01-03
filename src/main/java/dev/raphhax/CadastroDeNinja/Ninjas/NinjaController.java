@@ -5,8 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
-
+@RequestMapping("/ninjas")
 public class NinjaController {
 
     private NinjaService ninjaService;
@@ -24,9 +23,13 @@ public class NinjaController {
 
     // Adicionar Ninja (CREATE)
     @PostMapping("/criar")
-    public String criarNinja(){
-        return "Ninja criado com SUCESSO!!!";
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninjaModel){
+        // Essa funcao pega o requestBody que exige um json, dai para salvar manda o json
+        // Com todas as info do nosso ninja para o nosso obj ninjaService, nele chama o
+        // Metodo salvar que ja salva automaticamente, pq tem a propriedade INSERT
+        return ninjaService.criarNinja(ninjaModel);
     }
+
 
     // Mostrar todos os Ninjas (READ)
     @GetMapping("/listar")
