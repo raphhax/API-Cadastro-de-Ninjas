@@ -21,7 +21,7 @@ public class NinjaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Para falar como(qual a estratégia) o ID será gerado automaticamente
     // As variaveis abaixo sao colunas da nossa tabela tb_cadastro
     @Column(name = "id")
-    private long id; // Gerado como numeros sequenciais por conta do @GeneratedValue
+    private Long id; // Gerado como numeros sequenciais por conta do @GeneratedValue
 
     @Column(name = "nome")
     private String nome;
