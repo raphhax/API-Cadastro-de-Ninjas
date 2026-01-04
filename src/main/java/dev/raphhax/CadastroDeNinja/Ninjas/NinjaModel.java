@@ -2,9 +2,7 @@ package dev.raphhax.CadastroDeNinja.Ninjas;
 
 import dev.raphhax.CadastroDeNinja.Missoes.MissoesModel;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -13,6 +11,8 @@ import java.util.List;
 @Entity
 @Table(name = "tb_cadastro") // tb = table = boa pratica para nomear tabelas
 @Data // Annotation de Criacao automatica de getters e setters
+@Setter
+@Getter
 @NoArgsConstructor // Criacao automatica de construtor vazio
 @AllArgsConstructor // Criacao automatica de construtores completos
 public class NinjaModel {
@@ -37,5 +37,13 @@ public class NinjaModel {
     // uma tabela com oq vem de outra, dai missoes_id vira uma nova coluna que terá a chave estrangeira, que pegará
     // informacoes de pelo menos duas tabelas
     private MissoesModel missoes;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
 
 }
