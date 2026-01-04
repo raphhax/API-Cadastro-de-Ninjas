@@ -8,12 +8,11 @@ import java.util.List;
 @RequestMapping("/ninjas")
 public class NinjaController {
 
-    private NinjaService ninjaService;
+    private final NinjaService ninjaService;
 
     public NinjaController(NinjaService ninjaService){
         this.ninjaService = ninjaService;
     }
-
 
 
     @GetMapping ("/boasVindas")
@@ -51,9 +50,11 @@ public class NinjaController {
     }
 
     // Deletar Ninja (DELETE)
-    @DeleteMapping("/deletarID")
-    public String deletarNinjaPorID(){
-        return "Deletando ninja por ID";
+    @DeleteMapping("/deletar/{id}")
+    //@PathVariable sempre usado para pegar um valor que o usuario vai passar
+    public void deletarNinjaPorID(@PathVariable Long id) {
+        ninjaService.deletarNinjaPorID(id);
+
     }
 
 }
