@@ -1,5 +1,6 @@
 package dev.raphhax.CadastroDeNinja.Ninjas;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,9 +45,9 @@ public class NinjaController {
     }
 
     // Atualizar Ninja por ID (UPDATE)
-    @PutMapping("/alterarID")
-    public String alterarNinjaPorID(){
-        return "Alterando Ninja por ID...";
+    @PutMapping("/alterar/{id}")
+    public NinjaModel editarNinjaPorID(@PathVariable Long id, @RequestBody NinjaModel ninjaModel){
+        return ninjaService.editarNinjaPorID(id, ninjaModel);
     }
 
     // Deletar Ninja (DELETE)
@@ -54,7 +55,6 @@ public class NinjaController {
     //@PathVariable sempre usado para pegar um valor que o usuario vai passar
     public void deletarNinjaPorID(@PathVariable Long id) {
         ninjaService.deletarNinjaPorID(id);
-
     }
 
 }
